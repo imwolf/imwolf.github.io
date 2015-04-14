@@ -102,3 +102,6 @@ facebook_like: false
 
 #duoshuo commments
 duoshuo : true
+
+#share                                                                                      
+share: true  
