@@ -4,10 +4,10 @@
 
 # Site
 title: 破风
-subtitle:
+subtitle: Read more ! Think More ! Code More !
 description:
 author: windy_wolf
-language:
+language: zh_CN
 timezone:
 
 # URL
@@ -76,3 +76,6 @@ deploy:
   repo: https://github.com/imwolf/imwolf.github.io.git
   branch: master
   message:
+
+#duoshuo
+duoshuo_shortname : imwolf
