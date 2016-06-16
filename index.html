@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>破风</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="破风">
+<meta property="og:url" content="http://imwolf.github.io/index.html">
+<meta property="og:site_name" content="破风">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="破风">
+<meta name="twitter:description">
+  
+    <link rel="alternative" href="/atom.xml" title="破风" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">破风</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Read more ! Think More ! Code More !</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://imwolf.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-git-push-remote-branch" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/04/16/git-push-remote-branch/" class="article-date">
+  <time datetime="2015-04-15T17:57:25.000Z" itemprop="datePublished">2015-04-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/16/git-push-remote-branch/">git操作 - push本地分支到远端分支</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##1.背景：<br>一般情况下我们的git的操作会是这样的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> git@xxx.git <span class="built_in">local</span>_repo</span><br><span class="line">$ ... <span class="keyword">do</span> some changes <span class="keyword">in</span> <span class="built_in">local</span> repo</span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
+<p>最后的push操作会将本地的master分支更新到远端origin的master分支上去(由于git clone时默认设置了本地master分支的up-stream为origin/master)。</p>
+<p>那么问题来了</p>
+<ul>
+<li><em>如何将本地分支推送到远端的别的分支,比如origin/other_branch,即使在远端这个分支不存在</em></li>
+</ul>
+<p>##2.解决方案<br>    $ git push origin master:other_branch</p>
+<p>这样之后，本地的master分支就提交到了远端的other_branch,同时该master分支的up-stream也被设置到了该分支。但是以后每次更新的时候是否还需要再次打这么长一条命令，能否直接git push 就可以呢?<br>首先根据<a href="http://stackoverflow.com/questions/171550/find-out-which-remote-branch-a-local-branch-is-tracking" target="_blank" rel="external">[2]</a>,我们可以知道本地分支的track信息:</p>
+<p><code>$ git remote show origin</code></p>
+<p>发现master分支push的时候仍会push到remote/origin的master分支。根据<a href="http://stackoverflow.com/questions/8170558/git-push-set-target-for-branch" target="_blank" rel="external">[1]</a>,我们可以知道git push时如果不加任何东西，会按照push.default的这个默认配置来push。而这个push.default定义如下:</p>
+<pre><code>push.default
+Defines the action git push should take if no refspec is given on the
+command line, no refspec is configured in the remote, and no refspec 
+is implied by any of the options given on the command line. 
+
+Possible values are:
+nothing - do not push anything.
+matching - push all matching branches. All branches having the same 
+name in both ends are considered to be matching. This is the default.
+upstream - push the current branch to its upstream branch.
+tracking - deprecated synonym for upstream.
+current - push the current branch to a branch of the same name.
+</code></pre><p>所以我们要做的就是把push的策略改为upstream:</p>
+<p><code>$ git config --config push.default=upstream</code></p>
+<p>现在再使用git push,此时本地的master分支就会push到remote的hexosrc分支上了(但是我使用用<code>git remote show origin</code>似乎没有变化,不知是否是bug)。</p>
+<p>##3.其他<br>删除远端分支</p>
+<pre><code>$ git push origin :other_branch  #:右边的远端分支other_branch将被删除。
+</code></pre><p>初看好像挺难理解这条命令的逻辑的，如果把这条命令想成把一个空分支提交到远端other_branch分支，那么这条命令的语义似乎也好理解了。</p>
+<hr>
+<p>####参考文献</p>
+<p><a href="http://stackoverflow.com/questions/8170558/git-push-set-target-for-branch" target="_blank" rel="external">1. http://stackoverflow.com/questions/8170558/git-push-set-target-for-branch</a><br><a href="http://stackoverflow.com/questions/171550/find-out-which-remote-branch-a-local-branch-is-tracking" target="_blank" rel="external">2. http://stackoverflow.com/questions/171550/find-out-which-remote-branch-a-local-branch-is-tracking</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://imwolf.github.io/2015/04/16/git-push-remote-branch/" data-id="cipi5d4pn00011ps6fceswunf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!--
+
+-->
+
+
+  
+    <article id="post-hello-github-blog" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/04/12/hello-github-blog/" class="article-date">
+  <time datetime="2015-04-11T23:04:27.000Z" itemprop="datePublished">2015-04-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/12/hello-github-blog/">第一天</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##今天完成的事情:</p>
+<ol>
+<li>Sensys Deadline</li>
+<li>参考”<a href="http://blog.csdn.net/jackystudio/article/details/16367937" target="_blank" rel="external">像黑客一样写博客</a>“搭建了Octopress</li>
+</ol>
+<p>##现在的状态：<br><img src="https://www.petfinder.com/wp-content/uploads/2012/11/dog-how-to-select-your-new-best-friend-thinkstock99062463.jpg" alt=""></p>
+<p><strong>困成狗了啊喂！！！</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://imwolf.github.io/2015/04/12/hello-github-blog/" data-id="cipi5d4ph00001ps6bap8hyyc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!--
+
+-->
+
+
+  
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/git/" style="font-size: 10px;">git</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/04/16/git-push-remote-branch/">git操作 - push本地分支到远端分支</a>
+          </li>
+        
+          <li>
+            <a href="/2015/04/12/hello-github-blog/">第一天</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 windy_wolf<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?515010afb0c2c8a540c0f7002fbf47f5";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+  </div>
+</body>
+</html>
