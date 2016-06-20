@@ -3,7 +3,7 @@ date: 2015-04-16 01:57:25
 tag : git
 ---
 
-##1.背景：
+## 1.背景：
 一般情况下我们的git的操作会是这样的
 
 ``` bash
@@ -18,7 +18,7 @@ $ git push origin master
 
 * *如何将本地分支推送到远端的别的分支,比如origin/other_branch,即使在远端这个分支不存在*
 
-##2.解决方案
+## 2.解决方案
 	$ git push origin master:other_branch
 
 这样之后，本地的master分支就提交到了远端的other_branch,同时该master分支的up-stream也被设置到了该分支。但是以后每次更新的时候是否还需要再次打这么长一条命令，能否直接git push 就可以呢?
@@ -46,7 +46,7 @@ $ git push origin master
 `$ git config --config push.default=upstream`
 
 现在再使用git push,此时本地的master分支就会push到remote的hexosrc分支上了(但是我使用用`git remote show origin`似乎没有变化,不知是否是bug)。
-##3.其他
+## 3.其他
 删除远端分支
 
 	$ git push origin :other_branch  #:右边的远端分支other_branch将被删除。
@@ -54,7 +54,7 @@ $ git push origin master
 初看好像挺难理解这条命令的逻辑的，如果把这条命令想成把一个空分支提交到远端other_branch分支，那么这条命令的语义似乎也好理解了。
 
 ---
-####参考文献
+#### 参考文献
 
 [1. http://stackoverflow.com/questions/8170558/git-push-set-target-for-branch][1]  
 [2. http://stackoverflow.com/questions/171550/find-out-which-remote-branch-a-local-branch-is-tracking][2]
