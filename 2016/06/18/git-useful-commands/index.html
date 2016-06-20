@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="git," />
 
 
 
@@ -84,18 +84,31 @@
 
 
 
-<meta name="description" content="博客和空间好久没动了，最近觉得对于知识和想法在进行输出之后才能更好得为自己所用，于是打算重新拾起来这个地方。电脑换了，所以要在Mac上重新安装hexo,在nodejs,git都已经装全的情况下，用npm安装了hexo,但是出现了下面的错误:123&amp;#123; [Error: Cannot find module &apos;./build/Release/DTraceProviderBindings&apos;] c">
+<meta name="description" content="git pull
+含义:取回远程主机某个分支的更新，再与本地的指定分支合并
+
+123$ git pull &amp;lt;远程主机名&amp;gt; &amp;lt;远程分支名&amp;gt;:&amp;lt;本地分支名&amp;gt; $ git pull --rebase 以rebase方式进行合并 $ git pull = git fecth + git merge
+git回退
+git reset —hard commit_id或者 使用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo在Mac上重新安装">
-<meta property="og:url" content="http://imwolf.github.io/2016/06/17/hexo-reinstall-mac/index.html">
+<meta property="og:title" content="Git使用">
+<meta property="og:url" content="http://imwolf.github.io/2016/06/18/git-useful-commands/index.html">
 <meta property="og:site_name" content="破风">
-<meta property="og:description" content="博客和空间好久没动了，最近觉得对于知识和想法在进行输出之后才能更好得为自己所用，于是打算重新拾起来这个地方。电脑换了，所以要在Mac上重新安装hexo,在nodejs,git都已经装全的情况下，用npm安装了hexo,但是出现了下面的错误:123&amp;#123; [Error: Cannot find module &apos;./build/Release/DTraceProviderBindings&apos;] c">
-<meta property="og:image" content="http://o8wr0ngra.bkt.clouddn.com/hexo_for_mac.png">
-<meta property="og:updated_time" content="2016-06-20T09:00:28.000Z">
+<meta property="og:description" content="git pull
+含义:取回远程主机某个分支的更新，再与本地的指定分支合并
+
+123$ git pull &amp;lt;远程主机名&amp;gt; &amp;lt;远程分支名&amp;gt;:&amp;lt;本地分支名&amp;gt; $ git pull --rebase 以rebase方式进行合并 $ git pull = git fecth + git merge
+git回退
+git reset —hard commit_id或者 使用">
+<meta property="og:updated_time" content="2016-06-20T09:11:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo在Mac上重新安装">
-<meta name="twitter:description" content="博客和空间好久没动了，最近觉得对于知识和想法在进行输出之后才能更好得为自己所用，于是打算重新拾起来这个地方。电脑换了，所以要在Mac上重新安装hexo,在nodejs,git都已经装全的情况下，用npm安装了hexo,但是出现了下面的错误:123&amp;#123; [Error: Cannot find module &apos;./build/Release/DTraceProviderBindings&apos;] c">
-<meta name="twitter:image" content="http://o8wr0ngra.bkt.clouddn.com/hexo_for_mac.png">
+<meta name="twitter:title" content="Git使用">
+<meta name="twitter:description" content="git pull
+含义:取回远程主机某个分支的更新，再与本地的指定分支合并
+
+123$ git pull &amp;lt;远程主机名&amp;gt; &amp;lt;远程分支名&amp;gt;:&amp;lt;本地分支名&amp;gt; $ git pull --rebase 以rebase方式进行合并 $ git pull = git fecth + git merge
+git回退
+git reset —hard commit_id或者 使用">
 
 
 
@@ -116,9 +129,9 @@
 
 
 
-  <link rel="canonical" href="http://imwolf.github.io/2016/06/17/hexo-reinstall-mac/"/>
+  <link rel="canonical" href="http://imwolf.github.io/2016/06/18/git-useful-commands/"/>
 
-  <title> Hexo在Mac上重新安装 | 破风 </title>
+  <title> Git使用 | 破风 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -238,7 +251,7 @@
             
             
               
-                Hexo在Mac上重新安装
+                Git使用
               
             
           </h1>
@@ -250,8 +263,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-17T17:48:26+08:00" content="2016-06-17">
-              2016-06-17
+            <time itemprop="dateCreated" datetime="2016-06-18T14:18:21+08:00" content="2016-06-18">
+              2016-06-18
             </time>
           </span>
 
@@ -261,8 +274,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/06/17/hexo-reinstall-mac/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/17/hexo-reinstall-mac/" itemprop="commentsCount"></span>
+                <a href="/2016/06/18/git-useful-commands/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/18/git-useful-commands/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -285,24 +298,52 @@
       
 
       
-        <p>博客和空间好久没动了，最近觉得对于知识和想法在进行输出之后才能更好得为自己所用，于是打算重新拾起来这个地方。<br>电脑换了，所以要在Mac上重新安装hexo,在nodejs,git都已经装全的情况下，用npm安装了hexo,但是出现了下面的错误:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; [Error: Cannot find module <span class="string">'./build/Release/DTraceProviderBindings'</span>] code: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br><span class="line">&#123; [Error: Cannot find module <span class="string">'./build/default/DTraceProviderBindings'</span>] code: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br><span class="line">&#123; [Error: Cannot find module <span class="string">'./build/Debug/DTraceProviderBindings'</span>] code: <span class="string">'MODULE_NOT_FOUND'</span> &#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="失败方案"><a href="#失败方案" class="headerlink" title="失败方案"></a>失败方案</h4><p>把错误甩到Google，发现<a href="1">网上的解决方案</a>，一般为换个npm源，然后再重新安装，但在我这里无法成功，具体原因不明。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm --registry https://registry.npm.taobao.org</span><br><span class="line">npm install hexo-cli —no-optional</span><br></pre></td></tr></table></figure></p>
-<h4 id="成功方案"><a href="#成功方案" class="headerlink" title="成功方案"></a>成功方案</h4><p>仍然是重新安装，但重点是先卸载hexo:</p>
-<ol>
-<li><p>根据<a href="2">hexo官方网站</a>mac用户的说明，先安装Xcode,并安装Command Line tools<br><img src="http://o8wr0ngra.bkt.clouddn.com/hexo_for_mac.png" alt="for mac user"></p>
-</li>
-<li><p>卸载之前安装的hexo  (<strong>重要</strong>) ,不卸载在我的机器上无法成功</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-cli -g <span class="comment">#3.0.0版本执行</span></span><br><span class="line">npm uninstall hexo -g <span class="comment">#之前版本执行</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置国内npm数据源并重新安装(之前使用cnpm似乎也不能成功)</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm --registry https://registry.npm.taobao.org</span><br><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在blog根目录下启动安装hexo模块并启动hexo server</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-</li>
+        <h3 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h3><ol>
+<li>含义:取回远程主机某个分支的更新，再与本地的指定分支合并</li>
 </ol>
-<hr>
-<h5 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献:"></a>参考文献:</h5><p>[1]: <a href="https://segmentfault.com/a/1190000002979092" title="hexo配置解决" target="_blank" rel="external">https://segmentfault.com/a/1190000002979092</a><br>[2]: <a href="https://hexo.io/docs" title="官方文档" target="_blank" rel="external">https://hexo.io/docs</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt; </span><br><span class="line">$ git pull --rebase 以rebase方式进行合并 </span><br><span class="line">$ git pull = git fecth + git merge</span><br></pre></td></tr></table></figure>
+<h3 id="git回退"><a href="#git回退" class="headerlink" title="git回退"></a>git回退</h3><ol>
+<li><code>git reset —hard commit_id</code>或者 使用HEAD标记,HEAD表示当前版本号，HEAD^上一个版本号，HEAD~100前100个版本号</li>
+<li><code>git log</code> 查看提交历史，方便回到某个版本;git log –pretty=oneline</li>
+<li><code>git reflog</code> 查看reflog中的历史，好像是查看reference的变动历史；具体查看help文档；在reset之后可以查到未来的commit_id </li>
+</ol>
+<h3 id="工作区与暂存区"><a href="#工作区与暂存区" class="headerlink" title="工作区与暂存区"></a>工作区与暂存区</h3><ol>
+<li><code>git add</code>的操作都是放在暂存区（不仅仅是添加文件）</li>
+<li><code>git commit</code>负责把暂存区内的内容提交到版本库</li>
+</ol>
+<h3 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h3><ol>
+<li>修改只在工作区 (before add): <code>git checkout -- file</code> (包括误删了文件也可以通过该命令恢复)</li>
+<li>修改存在暂存区 (before commit ,after add): <code>git reset HEAD file</code> (to unstage the file)</li>
+<li>修改已经提交到本地版本库 (after commit): 参见git回退一节</li>
+<li><strong>如果已经push到远程版本库呢?</strong></li>
+</ol>
+<h3 id="将一个Commit分为多个-split-commit-into-2"><a href="#将一个Commit分为多个-split-commit-into-2" class="headerlink" title="将一个Commit分为多个(split commit into 2)"></a>将一个Commit分为多个(split commit into 2)</h3><ol>
+<li>使用<code>git rebase -i HEAD~3</code>打开rebase的交互模式，在想要分离的commit那一行选择edit，确定后进入无分支模式HEAD指向此次提交</li>
+<li>使用<code>git reset HEAD~</code>撤销该commit</li>
+<li><code>git add</code>需要的修改，commit;再add,再修改</li>
+<li><code>git stash</code>某些不想提交的文件(否则git rebase –continue无法进行下去)</li>
+<li><code>git rebase --continue</code>直到完成</li>
+<li><code>git stash list/pop</code> 得到暂存的文件</li>
+</ol>
+<blockquote>
+<p>p.s :<br>1) <code>git rebase --abort</code>可以中断rebase过程<br>2) <code>rebase</code>还可以重调commit顺序，合并commit等等<br>3) 参考<a href="http://stackoverflow.com/questions/6217156/break-a-previous-commit-into-multiple-commits" title="stackoverflow" target="_blank" rel="external">StackOverflow</a> </p>
+</blockquote>
+<p>超简略版本:</p>
+<pre><code>git rebase -i HEAD~3 -&gt; edit the commit -&gt; git --continue
+</code></pre><h3 id="新建本地分支与远地分支的联系"><a href="#新建本地分支与远地分支的联系" class="headerlink" title="新建本地分支与远地分支的联系"></a>新建本地分支与远地分支的联系</h3><pre><code>git branch --set-upstream debug origin/debug
+</code></pre><h3 id="git-重命名分支-本地和远程"><a href="#git-重命名分支-本地和远程" class="headerlink" title="git 重命名分支(本地和远程)"></a><a href="https://gist.github.com/lttlrck/9628955" target="_blank" rel="external">git 重命名分支(本地和远程)</a></h3><pre><code>git branch -m old_branch new_branch
+git push origin :old_branch
+git push --set-upstream origin new_branch
+</code></pre><h3 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h3><pre><code>git branch --merged #查看已经merge到当前分支的分支(删除这些分支是安全的，他们的工作已经包含在当前分支)
+git branch --no-merged
+</code></pre><h3 id="别名操作"><a href="#别名操作" class="headerlink" title="别名操作"></a>别名操作</h3><pre><code>$ git config --global alias.co checkout
+$ git config --global alias.br branch
+$ git config --global alias.ci commit
+$ git config --global alias.st status
+$ git config --global alias.unstage &apos;reset HEAD --&apos;
+$ git config --global alias.last &apos;log -1 HEAD&apos;
+</code></pre><hr>
+<h5 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献:"></a>参考文献:</h5><p>[1]:<a href="http://stackoverflow.com/questions/6217156/break-a-previous-commit-into-multiple-commits" title="stackoverflow" target="_blank" rel="external">http://stackoverflow.com/questions/6217156/break-a-previous-commit-into-multiple-commits</a><br>[2]:<a href="https://gist.github.com/lttlrck/9628955" target="_blank" rel="external">https://gist.github.com/lttlrck/9628955</a></p>
 
       
     </div>
@@ -324,7 +365,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag">#hexo</a>
+            <a href="/tags/git/" rel="tag">#git</a>
           
         </div>
       
@@ -333,17 +374,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/04/16/git-push-remote-branch/" rel="next" title="git操作 - push本地分支到远端分支">
-                <i class="fa fa-chevron-left"></i> git操作 - push本地分支到远端分支
+              <a href="/2016/06/17/hexo-reinstall-mac/" rel="next" title="Hexo在Mac上重新安装">
+                <i class="fa fa-chevron-left"></i> Hexo在Mac上重新安装
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/18/git-useful-commands/" rel="prev" title="Git使用">
-                Git使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -369,8 +406,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/06/17/hexo-reinstall-mac/"
-           data-title="Hexo在Mac上重新安装" data-url="http://imwolf.github.io/2016/06/17/hexo-reinstall-mac/">
+      <div class="ds-thread" data-thread-key="2016/06/18/git-useful-commands/"
+           data-title="Git使用" data-url="http://imwolf.github.io/2016/06/18/git-useful-commands/">
       </div>
     
   </div>
@@ -471,7 +508,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#失败方案"><span class="nav-number">1.</span> <span class="nav-text">失败方案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#成功方案"><span class="nav-number">2.</span> <span class="nav-text">成功方案</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#参考文献"><span class="nav-number">2.1.</span> <span class="nav-text">参考文献:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#git-pull"><span class="nav-number">1.</span> <span class="nav-text">git pull</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git回退"><span class="nav-number">2.</span> <span class="nav-text">git回退</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作区与暂存区"><span class="nav-number">3.</span> <span class="nav-text">工作区与暂存区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#撤销修改"><span class="nav-number">4.</span> <span class="nav-text">撤销修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将一个Commit分为多个-split-commit-into-2"><span class="nav-number">5.</span> <span class="nav-text">将一个Commit分为多个(split commit into 2)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建本地分支与远地分支的联系"><span class="nav-number">6.</span> <span class="nav-text">新建本地分支与远地分支的联系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-重命名分支-本地和远程"><span class="nav-number">7.</span> <span class="nav-text">git 重命名分支(本地和远程)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支操作"><span class="nav-number">8.</span> <span class="nav-text">分支操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#别名操作"><span class="nav-number">9.</span> <span class="nav-text">别名操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#参考文献"><span class="nav-number">9.0.1.</span> <span class="nav-text">参考文献:</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
