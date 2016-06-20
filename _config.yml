@@ -7,7 +7,7 @@ title: 破风
 subtitle: Read more ! Think More ! Code More !
 description:
 author: windy_wolf
-language: zh_CN
+language: zh-Hans
 timezone:
 
 # URL
@@ -63,8 +63,8 @@ pagination_dir: page
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: landscape
-#theme: next
+#theme: landscape
+theme: next
 #theme: jacman
 #stylus:
 #  compress: true
@@ -77,5 +77,51 @@ deploy:
   branch: master
   message:
 
+# =============================================================================
+# NexT Theme configuration
+# =============================================================================
+
+#avatar: https://avatars1.githubusercontent.com/u/32269?v=3&s=460
+
+# Duoshuo
+duoshuo_shortname: imwolf
+
+# Disqus
+disqus_shortname: 
+
+
+# Social links
+social:
+  GitHub: https://github.com/imwolf
+  #Twitter: https://twitter.com/iissnan
+  #Weibo: http://weibo.com/iissnan
+  #DouBan: http://douban.com/people/iissnan
+  #ZhiHu: http://www.zhihu.com/people/iissnan
+
+
+# Creative Commons 4.0 International License.
+# http://creativecommons.org/
+# Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
+creative_commons: by-nc-sa
+
+# Google Webmaster tools verification setting
+# See: https://www.google.com/webmasters/
+google_site_verification: 
+
+
+# Google Analytics
+# Google分析ID
+google_analytics:
+
+
+# 百度分析ID
+baidu_analytics:
+
+# Specify the date when the site was setup
+since: 2015
+
+# =============================================================================
+# End NexT Theme configuration
+# =============================================================================
 #duoshuo
-duoshuo_shortname : imwolf
+#duoshuo_shortname : imwolf
