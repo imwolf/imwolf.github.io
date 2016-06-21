@@ -10,6 +10,14 @@ tags: git
 	$ git pull --rebase 以rebase方式进行合并 
 	$ git pull = git fecth + git merge 
 ```
+
+### git diff
+```bash
+	$ git diff #列出没有进行索引(staged)的修改
+	$ git diff --staged(cached) #列出索引内容(通过git add)和上次提交(commit)的区别
+```
+* 也就是说`git diff`比较工作目录和暂存(索引)区的内容;`git diff --staged`比较暂存区域和历史区域的区别内容  
+* git difftool --tool-help可以使用系统上的其他diff工具来进行更加方便得进行内容比较，包括vimdiff,xcode的比较工具等等
 	
 ### git回退
 1. `git reset —hard commit_id`或者 使用HEAD标记,HEAD表示当前版本号，HEAD^上一个版本号，HEAD~100前100个版本号
