@@ -18,6 +18,42 @@ tags: git
 ```
 * 也就是说`git diff`比较工作目录和暂存(索引)区的内容;`git diff --staged`比较暂存区域和历史区域的区别内容  
 * git difftool --tool-help可以使用系统上的其他diff工具来进行更加方便得进行内容比较，包括vimdiff,xcode的比较工具等等
+
+### git rm
+`git rm`删除文件同时从暂存区中将文件删除  
+`git rm --cached`仅仅从暂存区中将文件删除，保留工作目录中的文件
+
+### git log
+git log用来显示提交(commit)的历史，如:
+```bash
+	$ git log -2 #显示前两条提交历史
+	$ git log --prety=oneline #单行显示提交历史
+	$ git log --since=2.weeks
+	$ git log -Sfunction_name
+```
+	
+选项		|描述     
+----------|-----------
+-p			|显示每次commit时引入的patch
+--stat		|显示每次commit时的文件统计信息(修改了几行等)
+--prety|用另一种格式显示提交，包括oneline,short,full,fuller,format(自定义)格式
+--graph	|使用ASCII图的形式显示分支和合并历史
+--relative-date	|显示修改相对日期
+
+其他选项包括--name-only,--name-status,--abbrev-commit
+`git log`还包括一些过滤参数，详细参考命令文档或者《pro git》第二章
+
+
+### 重命名文件
+`git`提供了`mv`命令来将文件A重命名为文件B  
+`git mv A B`等同于以下三条语句:
+
+```bash
+	$ mv A B
+	$ git rm A
+	$ git add B
+```
+注意第二句git rm A是很重要的，如果仅仅做了mv操作，然后进行add或者commit -a,就会发现原来的文件并没有被删除掉。
 	
 ### git回退
 1. `git reset —hard commit_id`或者 使用HEAD标记,HEAD表示当前版本号，HEAD^上一个版本号，HEAD~100前100个版本号
@@ -35,6 +71,17 @@ tags: git
 4. **如果已经push到远程版本库呢?**
 
 
+### 修改commit
+如果在一次commit之后发现某个修改没有stage（通过git add)，或者觉得commit message有问题，可以通过`git commit --amend`进行修复，这个命令获取暂存区并将其用于提交
+
+```bash
+	$ git commit -m 'initial commit'
+	$ git add forgotten_file
+	$ git commit --amend
+```
+上述三条语句最终只产生一个commit
+
+
 ### 将一个Commit分为多个(split commit into 2)
 1. 使用`git rebase -i HEAD~3`打开rebase的交互模式，在想要分离的commit那一行选择edit，确定后进入无分支模式HEAD指向此次提交
 2. 使用`git reset HEAD~`撤销该commit
@@ -43,14 +90,18 @@ tags: git
 5. `git rebase --continue`直到完成
 6. `git stash list/pop` 得到暂存的文件
 
->p.s : 
->1) `git rebase --abort `可以中断rebase过程 
->2) `rebase`还可以重调commit顺序，合并commit等等 
+>p.s :  
+>1) `git rebase --abort `可以中断rebase过程  
+>2) `rebase`还可以重调commit顺序，合并commit等等  
 >3) 参考[StackOverflow][1] 
 
 超简略版本:
 
 	git rebase -i HEAD~3 -> edit the commit -> git --continue
+	
+### git remote
+	$ git remote -v 
+	$ git remote show #可以显示本地分支推送到哪个远程分支
 
 ###  新建本地分支与远地分支的联系 
 	git branch --set-upstream debug origin/debug
