@@ -88,8 +88,7 @@
 含义:取回远程主机某个分支的更新，再与本地的指定分支合并
 
 123$ git pull &amp;lt;远程主机名&amp;gt; &amp;lt;远程分支名&amp;gt;:&amp;lt;本地分支名&amp;gt; $ git pull --rebase 以rebase方式进行合并 $ git pull = git fecth + git merge
-git回退
-git reset —hard commit_id或者 使用">
+git diff12$ git diff #列出没有进行索引(stage">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git使用">
 <meta property="og:url" content="http://imwolf.github.io/2016/06/18/git-useful-commands/index.html">
@@ -98,17 +97,15 @@ git reset —hard commit_id或者 使用">
 含义:取回远程主机某个分支的更新，再与本地的指定分支合并
 
 123$ git pull &amp;lt;远程主机名&amp;gt; &amp;lt;远程分支名&amp;gt;:&amp;lt;本地分支名&amp;gt; $ git pull --rebase 以rebase方式进行合并 $ git pull = git fecth + git merge
-git回退
-git reset —hard commit_id或者 使用">
-<meta property="og:updated_time" content="2016-06-20T09:11:49.000Z">
+git diff12$ git diff #列出没有进行索引(stage">
+<meta property="og:updated_time" content="2016-06-21T11:01:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git使用">
 <meta name="twitter:description" content="git pull
 含义:取回远程主机某个分支的更新，再与本地的指定分支合并
 
 123$ git pull &amp;lt;远程主机名&amp;gt; &amp;lt;远程分支名&amp;gt;:&amp;lt;本地分支名&amp;gt; $ git pull --rebase 以rebase方式进行合并 $ git pull = git fecth + git merge
-git回退
-git reset —hard commit_id或者 使用">
+git diff12$ git diff #列出没有进行索引(stage">
 
 
 
@@ -302,6 +299,47 @@ git reset —hard commit_id或者 使用">
 <li>含义:取回远程主机某个分支的更新，再与本地的指定分支合并</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt; </span><br><span class="line">$ git pull --rebase 以rebase方式进行合并 </span><br><span class="line">$ git pull = git fecth + git merge</span><br></pre></td></tr></table></figure>
+<h3 id="git-diff"><a href="#git-diff" class="headerlink" title="git diff"></a>git diff</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git diff <span class="comment">#列出没有进行索引(staged)的修改</span></span><br><span class="line">$ git diff --staged(cached) <span class="comment">#列出索引内容(通过git add)和上次提交(commit)的区别</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>也就是说<code>git diff</code>比较工作目录和暂存(索引)区的内容;<code>git diff --staged</code>比较暂存区域和历史区域的区别内容  </li>
+<li>git difftool –tool-help可以使用系统上的其他diff工具来进行更加方便得进行内容比较，包括vimdiff,xcode的比较工具等等</li>
+</ul>
+<h3 id="git-rm"><a href="#git-rm" class="headerlink" title="git rm"></a>git rm</h3><p><code>git rm</code>删除文件同时从暂存区中将文件删除<br><code>git rm --cached</code>仅仅从暂存区中将文件删除，保留工作目录中的文件</p>
+<h3 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h3><p>git log用来显示提交(commit)的历史，如:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> -2 <span class="comment">#显示前两条提交历史</span></span><br><span class="line">$ git <span class="built_in">log</span> --prety=oneline <span class="comment">#单行显示提交历史</span></span><br><span class="line">$ git <span class="built_in">log</span> --since=2.weeks</span><br><span class="line">$ git <span class="built_in">log</span> -S<span class="keyword">function</span>_name</span><br></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述     </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p</td>
+<td>显示每次commit时引入的patch</td>
+</tr>
+<tr>
+<td>–stat</td>
+<td>显示每次commit时的文件统计信息(修改了几行等)</td>
+</tr>
+<tr>
+<td>–prety</td>
+<td>用另一种格式显示提交，包括oneline,short,full,fuller,format(自定义)格式</td>
+</tr>
+<tr>
+<td>–graph</td>
+<td>使用ASCII图的形式显示分支和合并历史</td>
+</tr>
+<tr>
+<td>–relative-date</td>
+<td>显示修改相对日期</td>
+</tr>
+</tbody>
+</table>
+<p>其他选项包括–name-only,–name-status,–abbrev-commit<br><code>git log</code>还包括一些过滤参数，详细参考命令文档或者《pro git》第二章</p>
+<h3 id="重命名文件"><a href="#重命名文件" class="headerlink" title="重命名文件"></a>重命名文件</h3><p><code>git</code>提供了<code>mv</code>命令来将文件A重命名为文件B<br><code>git mv A B</code>等同于以下三条语句:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mv A B</span><br><span class="line">$ git rm A</span><br><span class="line">$ git add B</span><br></pre></td></tr></table></figure>
+<p>注意第二句git rm A是很重要的，如果仅仅做了mv操作，然后进行add或者commit -a,就会发现原来的文件并没有被删除掉。</p>
 <h3 id="git回退"><a href="#git回退" class="headerlink" title="git回退"></a>git回退</h3><ol>
 <li><code>git reset —hard commit_id</code>或者 使用HEAD标记,HEAD表示当前版本号，HEAD^上一个版本号，HEAD~100前100个版本号</li>
 <li><code>git log</code> 查看提交历史，方便回到某个版本;git log –pretty=oneline</li>
@@ -317,6 +355,9 @@ git reset —hard commit_id或者 使用">
 <li>修改已经提交到本地版本库 (after commit): 参见git回退一节</li>
 <li><strong>如果已经push到远程版本库呢?</strong></li>
 </ol>
+<h3 id="修改commit"><a href="#修改commit" class="headerlink" title="修改commit"></a>修改commit</h3><p>如果在一次commit之后发现某个修改没有stage（通过git add)，或者觉得commit message有问题，可以通过<code>git commit --amend</code>进行修复，这个命令获取暂存区并将其用于提交</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">'initial commit'</span></span><br><span class="line">$ git add forgotten_file</span><br><span class="line">$ git commit --amend</span><br></pre></td></tr></table></figure>
+<p>上述三条语句最终只产生一个commit</p>
 <h3 id="将一个Commit分为多个-split-commit-into-2"><a href="#将一个Commit分为多个-split-commit-into-2" class="headerlink" title="将一个Commit分为多个(split commit into 2)"></a>将一个Commit分为多个(split commit into 2)</h3><ol>
 <li>使用<code>git rebase -i HEAD~3</code>打开rebase的交互模式，在想要分离的commit那一行选择edit，确定后进入无分支模式HEAD指向此次提交</li>
 <li>使用<code>git reset HEAD~</code>撤销该commit</li>
@@ -330,6 +371,8 @@ git reset —hard commit_id或者 使用">
 </blockquote>
 <p>超简略版本:</p>
 <pre><code>git rebase -i HEAD~3 -&gt; edit the commit -&gt; git --continue
+</code></pre><h3 id="git-remote"><a href="#git-remote" class="headerlink" title="git remote"></a>git remote</h3><pre><code>$ git remote -v 
+$ git remote show #可以显示本地分支推送到哪个远程分支
 </code></pre><h3 id="新建本地分支与远地分支的联系"><a href="#新建本地分支与远地分支的联系" class="headerlink" title="新建本地分支与远地分支的联系"></a>新建本地分支与远地分支的联系</h3><pre><code>git branch --set-upstream debug origin/debug
 </code></pre><h3 id="git-重命名分支-本地和远程"><a href="#git-重命名分支-本地和远程" class="headerlink" title="git 重命名分支(本地和远程)"></a><a href="https://gist.github.com/lttlrck/9628955" target="_blank" rel="external">git 重命名分支(本地和远程)</a></h3><pre><code>git branch -m old_branch new_branch
 git push origin :old_branch
@@ -508,7 +551,7 @@ $ git config --global alias.last &apos;log -1 HEAD&apos;
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#git-pull"><span class="nav-number">1.</span> <span class="nav-text">git pull</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git回退"><span class="nav-number">2.</span> <span class="nav-text">git回退</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作区与暂存区"><span class="nav-number">3.</span> <span class="nav-text">工作区与暂存区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#撤销修改"><span class="nav-number">4.</span> <span class="nav-text">撤销修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将一个Commit分为多个-split-commit-into-2"><span class="nav-number">5.</span> <span class="nav-text">将一个Commit分为多个(split commit into 2)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建本地分支与远地分支的联系"><span class="nav-number">6.</span> <span class="nav-text">新建本地分支与远地分支的联系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-重命名分支-本地和远程"><span class="nav-number">7.</span> <span class="nav-text">git 重命名分支(本地和远程)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支操作"><span class="nav-number">8.</span> <span class="nav-text">分支操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#别名操作"><span class="nav-number">9.</span> <span class="nav-text">别名操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#参考文献"><span class="nav-number">9.0.1.</span> <span class="nav-text">参考文献:</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#git-pull"><span class="nav-number">1.</span> <span class="nav-text">git pull</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-diff"><span class="nav-number">2.</span> <span class="nav-text">git diff</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-rm"><span class="nav-number">3.</span> <span class="nav-text">git rm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-log"><span class="nav-number">4.</span> <span class="nav-text">git log</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重命名文件"><span class="nav-number">5.</span> <span class="nav-text">重命名文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git回退"><span class="nav-number">6.</span> <span class="nav-text">git回退</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作区与暂存区"><span class="nav-number">7.</span> <span class="nav-text">工作区与暂存区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#撤销修改"><span class="nav-number">8.</span> <span class="nav-text">撤销修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改commit"><span class="nav-number">9.</span> <span class="nav-text">修改commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将一个Commit分为多个-split-commit-into-2"><span class="nav-number">10.</span> <span class="nav-text">将一个Commit分为多个(split commit into 2)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-remote"><span class="nav-number">11.</span> <span class="nav-text">git remote</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建本地分支与远地分支的联系"><span class="nav-number">12.</span> <span class="nav-text">新建本地分支与远地分支的联系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-重命名分支-本地和远程"><span class="nav-number">13.</span> <span class="nav-text">git 重命名分支(本地和远程)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支操作"><span class="nav-number">14.</span> <span class="nav-text">分支操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#别名操作"><span class="nav-number">15.</span> <span class="nav-text">别名操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#参考文献"><span class="nav-number">15.0.1.</span> <span class="nav-text">参考文献:</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
